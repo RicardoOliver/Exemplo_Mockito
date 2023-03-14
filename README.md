@@ -30,7 +30,7 @@ Aqui está um exemplo de teste de unidade usando Mockito para simular o objeto U
   
   
  ```java
-  import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.*;
 import org.junit.*;
 import org.mockito.*;
 
