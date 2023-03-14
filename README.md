@@ -5,6 +5,7 @@
   
   Suponha que temos uma classe UserService que tem um método getUserById que retorna um objeto User com base no ID fornecido. Queremos testar essa classe usando   Mockito para simular o objeto UserDao que é usado internamente pelo UserService.
   
+  ```java
   public class UserService {
     private UserDao userDao;
 
