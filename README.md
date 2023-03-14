@@ -21,3 +21,42 @@
 public interface UserDao {
     User getUserById(int userId);
 }
+  
+Aqui está um exemplo de teste de unidade usando Mockito para simular o objeto UserDao:
+ ```java
+  import static org.mockito.Mockito.*;
+import org.junit.*;
+import org.mockito.*;
+
+public class UserServiceTest {
+    @Mock
+    private UserDao userDao;
+
+    @InjectMocks
+    private UserService userService;
+
+    @Before
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testGetUserById() {
+        // Criação de um objeto User fictício
+        User fakeUser = new User();
+        fakeUser.setId(1);
+        fakeUser.setName("John Doe");
+
+        // Configuração do comportamento simulado do objeto UserDao
+        when(userDao.getUserById(1)).thenReturn(fakeUser);
+
+        // Chama o método getUserById do objeto UserService
+        User user = userService.getUserById(1);
+
+        // Verifica se o objeto UserDao foi chamado corretamente
+        verify(userDao).getUserById(1);
+
+        // Verifica se o usuário retornado é igual ao usuário fictício criado acima
+        assertEquals(user, fakeUser);
+    }
+}
