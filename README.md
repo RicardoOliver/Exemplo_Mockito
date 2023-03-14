@@ -22,7 +22,7 @@
     User getUserById(int userId);
 }
   
-  
+ ``` 
   
   
 Aqui está um exemplo de teste de unidade usando Mockito para simular o objeto UserDao:
@@ -66,3 +66,4 @@ public class UserServiceTest {
         assertEquals(user, fakeUser);
     }
 }
+```
